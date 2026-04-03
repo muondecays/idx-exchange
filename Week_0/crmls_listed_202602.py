@@ -29,7 +29,7 @@ if token:
     params = {
         '$select': 'OriginalListPrice, ListingKey,CloseDate,ClosePrice,ListAgentFirstName,ListAgentLastName,Latitude,Longitude,UnparsedAddress,PropertyType,LivingArea,ListPrice,DaysOnMarket,ListOfficeName,BuyerOfficeName,CoListOfficeName,ListAgentFullName,CoListAgentFirstName,CoListAgentLastName,BuyerAgentMlsId,BuyerAgentFirstName,BuyerAgentLastName,FireplacesTotal,AssociationFeeFrequency,AboveGradeFinishedArea,ListingKeyNumeric,MLSAreaMajor,TaxAnnualAmount,CountyOrParish,PropertyType,MlsStatus,ElementarySchool,ListAgentFirstName,AttachedGarageYN,ParkingTotal,BuilderName,PropertySubType,LotSizeAcres,SubdivisionName,BuyerOfficeAOR,YearBuilt,DaysOnMarket,StreetNumberNumeric,LivingArea,ListingId,BathroomsTotalInteger,City,TaxYear,BuildingAreaTotal,BedroomsTotal,ContractStatusChangeDate,Longitude,ElementarySchoolDistrict,CoBuyerAgentFirstName,PurchaseContractDate,ListingContractDate,BelowGradeFinishedArea,BusinessType,Latitude,ListPrice,StateOrProvince,CoveredSpaces,MiddleOrJuniorSchool,FireplaceYN,Stories,HighSchool,Levels,ListAgentLastName,CloseDate,LotSizeDimensions,LotSizeArea,MainLevelBedrooms,NewConstructionYN,GarageSpaces,HighSchoolDistrict,PostalCode,BuyerOfficeName,AssociationFee,LotSizeSquareFeet,MiddleOrJuniorSchoolDistrict,UnparsedAddress',
       
-        '$filter': f"ListingContractDate ge {datetime(2026, 3, 1).isoformat(timespec='milliseconds')}Z and ListingContractDate lt {datetime(2026, 4, 1).isoformat(timespec='milliseconds')}Z",
+        '$filter': f"ListingContractDate ge {datetime(2026, 2, 1).isoformat(timespec='milliseconds')}Z and ListingContractDate lt {datetime(2026, 3, 1).isoformat(timespec='milliseconds')}Z",
 
 
         '$top': 1000  # Extracting up to 1000 observations
@@ -37,7 +37,7 @@ if token:
 
     # Send a GET request to the API endpoint with the token and parameters
     total_records = 0
-    csv_file = 'CRMLSListing202603.csv'
+    csv_file = 'CRMLSListing202602.csv'
 
     with open(csv_file, mode='w', newline='') as file:
         writer = csv.DictWriter(file, fieldnames=['OriginalListPrice','ListingKey', 'CloseDate', 'ClosePrice', 'ListAgentFirstName', 'ListAgentLastName', 'Latitude', 'Longitude', 'UnparsedAddress', 'PropertyType', 'LivingArea', 'ListPrice', 'DaysOnMarket', 'ListOfficeName', 'BuyerOfficeName', 'CoListOfficeName', 'ListAgentFullName', 'CoListAgentFirstName', 'CoListAgentLastName', 'BuyerAgentMlsId', 'BuyerAgentFirstName', 'BuyerAgentLastName', 'FireplacesTotal', 'AssociationFeeFrequency', 'AboveGradeFinishedArea', 'ListingKeyNumeric', 'MLSAreaMajor', 'TaxAnnualAmount', 'CountyOrParish', 'PropertyType', 'MlsStatus', 'ElementarySchool', 'ListAgentFirstName', 'AttachedGarageYN', 'ParkingTotal', 'BuilderName', 'PropertySubType', 'LotSizeAcres', 'SubdivisionName', 'BuyerOfficeAOR', 'YearBuilt', 'DaysOnMarket', 'StreetNumberNumeric', 'LivingArea', 'ListingId', 'BathroomsTotalInteger', 'City',  'TaxYear', 'BuildingAreaTotal', 'BedroomsTotal', 'ContractStatusChangeDate', 'Longitude', 'ElementarySchoolDistrict', 'CoBuyerAgentFirstName', 'PurchaseContractDate', 'ListingContractDate', 'BelowGradeFinishedArea', 'BusinessType', 'Latitude', 'ListPrice', 'StateOrProvince', 'CoveredSpaces', 'MiddleOrJuniorSchool', 'FireplaceYN', 'Stories', 'HighSchool', 'Levels', 'ListAgentLastName', 'CloseDate', 'LotSizeDimensions', 'LotSizeArea', 'MainLevelBedrooms', 'NewConstructionYN', 'GarageSpaces', 'HighSchoolDistrict', 'PostalCode', 'BuyerOfficeName', 'AssociationFee', 'LotSizeSquareFeet', 'MiddleOrJuniorSchoolDistrict', 'UnparsedAddress'])
